@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_power.c                                         :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/06 12:30:21 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/06/06 13:12:26 by kzennoun         ###   ########lyon.fr   */
+/*   Created: 2021/06/06 14:32:22 by kzennoun          #+#    #+#             */
+/*   Updated: 2021/06/06 15:25:18 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_power(int nb, int power)
+#include "minitalk.h"
+
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (power == 0)
-		return (1);
-	if (power < 0)
-		return (0);
-	if (power > 1)
-		return (nb * ft_power(nb, power - 1));
-	else
-		return (nb);
+	int		i;
+
+	if (s)
+	{
+		i = 0;
+		while (s[i])
+		{
+			write(fd, &s[i], 1);
+			i++;
+		}
+	}
 }

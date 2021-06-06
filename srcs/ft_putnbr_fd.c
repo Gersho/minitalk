@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_power.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/06 12:30:21 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/06/06 13:12:26 by kzennoun         ###   ########lyon.fr   */
+/*   Created: 2021/06/06 13:54:51 by kzennoun          #+#    #+#             */
+/*   Updated: 2021/06/06 15:27:30 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_power(int nb, int power)
+#include "minitalk.h"
+
+static void	ft_putchar_fd(char c, int fd)
 {
-	if (power == 0)
-		return (1);
-	if (power < 0)
-		return (0);
-	if (power > 1)
-		return (nb * ft_power(nb, power - 1));
+	write(fd, &c, 1);
+}
+
+void	ft_putnbr_fd(int nb, int fd)
+{
+	long int	long_nb;
+
+	long_nb = nb;
+	if (long_nb < 0)
+	{
+		write(fd, "-", 1);
+		long_nb *= -1;
+	}
+	if (long_nb >= 10)
+	{
+		ft_putnbr_fd(long_nb / 10, fd);
+		ft_putnbr_fd(long_nb % 10, fd);
+	}
 	else
-		return (nb);
+	{
+		ft_putchar_fd(('0' + long_nb), fd);
+	}
 }

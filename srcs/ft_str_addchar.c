@@ -1,31 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_pid.c                                          :+:      :+:    :+:   */
+/*   ft_str_addchar.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/05 18:14:15 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/06/06 13:30:08 by kzennoun         ###   ########lyon.fr   */
+/*   Created: 2021/06/06 14:26:51 by kzennoun          #+#    #+#             */
+/*   Updated: 2021/06/06 15:26:28 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int	parse_pid(char *arg)
+static size_t	ft_strlen(const char *str)
 {
-	int		value;
-	char	*ptr;
+	int	i;
 
-	value = ft_atoi(arg);
-	ptr = ft_itoa(value);
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_straddchar(char const *str, char const c)
+{
+	int		len;
+	char	*ptr;
+	int		i;
+
+	if (!str)
+		return (NULL);
+	len = ft_strlen(str);
+	ptr = malloc((len + 2) * sizeof(char));
 	if (!ptr)
-		error_exit(-1);
-	if (ft_strncmp(ptr, arg, 50) != 0 || value > 4194304)
+		return (NULL);
+	i = 0;
+	while (str[i])
 	{
-		free(ptr);
-		piderror_exit();
+		ptr[i] = str[i];
+		i++;
 	}
-	free(ptr);
-	return (value);
+	ptr[i++] = c;
+	ptr[i] = '\0';
+	//free(str);
+	return (ptr);
 }
