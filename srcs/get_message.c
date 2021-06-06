@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 14:01:26 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/06/06 17:18:04 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/06/06 18:06:20 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,6 @@ void get_message(int sig)
 	char *tmp;
 	static int	i;
 
-
-
-	//printf("----------\n");
-
-	// printf(" check init c:%d\n", (int)c );
-
-	// if (sig == SIGUSR1)
-	// 	printf("get SIGUSR1 (1)\n");
-	// if (sig == SIGUSR2)
-	// 	printf("get SIGUSR2 (0)\n");
-
-
-	//printf("str ptr %p\n", str);
-
 	if (!str)
 	{
 		str = malloc(sizeof(char *));
@@ -42,24 +28,12 @@ void get_message(int sig)
 	}
 	if (sig == SIGUSR1)
 		c |= 128 / ft_power(2, i);
-
-
-	// printf("current c:%c\n", c);
-	// printf("current (int)c:%d\n", (int)c);
-	//printf("i:%d\n", i);
-
-
-	
 	i++;
 	if (i == 8)
 	{
-		//printf("wtf\n");
 		i = 0;
 		if (c == '\0')
-		{
-			//printf("printing!!\n");
 			ft_putstr_fd(str, 1);
-		}
 		else
 		{
 			tmp = ft_straddchar(str, c);
