@@ -6,11 +6,11 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 18:24:43 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/06/05 18:27:55 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/06/06 13:04:59 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "client.h"
+#include "minitalk.h"
 
 static int	ft_get_digit_count(long int n)
 {

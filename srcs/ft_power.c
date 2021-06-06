@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/05 18:23:28 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/06/05 18:28:07 by kzennoun         ###   ########lyon.fr   */
+/*   Created: 2021/06/06 12:30:21 by kzennoun          #+#    #+#             */
+/*   Updated: 2021/06/06 13:05:12 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "client.h"
-
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_power(int nb, int power)
 {
-	size_t			i;
-	unsigned char	*casted_s1;
-	unsigned char	*casted_s2;
-
-	casted_s1 = (unsigned char *)s1;
-	casted_s2 = (unsigned char *)s2;
-	i = 0;
-	while (i < n)
-	{
-		if (casted_s1[i] != casted_s2[i] || s1[i] == '\0' || s2[i] == '\0')
-			return (casted_s1[i] - casted_s2[i]);
-		i++;
-	}
-	return (0);
+	if (power == 0)
+		return (1);
+	if (power < 0)
+		return (0);
+	if (power > 1)
+		return (nb * ft_recursive_power(nb, power - 1));
+	else
+		return (nb);
 }

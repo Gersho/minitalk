@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_pid.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/05 18:14:15 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/06/05 18:52:34 by kzennoun         ###   ########lyon.fr   */
+/*   Created: 2021/06/05 18:23:28 by kzennoun          #+#    #+#             */
+/*   Updated: 2021/06/06 13:05:20 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "client.h"
+#include "minitalk.h"
 
-
-int get_pid(char *arg)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int		value;
-	char	*ptr;
+	size_t			i;
+	unsigned char	*casted_s1;
+	unsigned char	*casted_s2;
 
-	value = ft_atoi(arg);
-	ptr = ft_itoa(value);
-	if (!ptr)
-		error_exit(-1);
-	if (ft_strncmp(ptr, arg, 50) != 0 || value > 4194304)
+	casted_s1 = (unsigned char *)s1;
+	casted_s2 = (unsigned char *)s2;
+	i = 0;
+	while (i < n)
 	{
-		free(ptr);
-		piderror_exit();
+		if (casted_s1[i] != casted_s2[i] || s1[i] == '\0' || s2[i] == '\0')
+			return (casted_s1[i] - casted_s2[i]);
+		i++;
 	}
-	free(ptr);
-	return (value);
+	return (0);
 }

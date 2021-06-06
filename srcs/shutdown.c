@@ -6,11 +6,11 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 18:34:50 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/06/05 18:48:41 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/06/06 13:07:40 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "client.h"
+#include "minitalk.h"
 
 void	piderror_exit(void)
 {

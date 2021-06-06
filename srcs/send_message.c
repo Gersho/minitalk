@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   send_message.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/05 17:35:38 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/06/05 18:49:32 by kzennoun         ###   ########lyon.fr   */
+/*   Created: 2021/06/06 12:26:00 by kzennoun          #+#    #+#             */
+/*   Updated: 2021/06/06 13:03:27 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "client.h"
+#include "minitalk.h"
 
-
-
-int main(int argc, char **argv)
+void send_message(char *str)
 {
-	int pid;
+    int i;
+    int j;
 
-	if(argc != 3)
-		argerror_exit();
+    i = 0;
 
-	pid = get_pid(argv[1]);
-
-printf("pid:%d\n", pid);
-exit(0);
-
+    while(str[i])
+    {
+       j = 0;
+       while(j < 8)
+       {
+           if (str[i] & 128 / ft_power(2,j))
+           {
+             //send 1
+           }
+           else 
+           {
+               //send 0
+           }
+           j++;
+       } 
+        i++;
+    }
 }

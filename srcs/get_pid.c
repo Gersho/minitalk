@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.h                                           :+:      :+:    :+:   */
+/*   get_pid.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/05 17:38:30 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/06/05 18:48:47 by kzennoun         ###   ########lyon.fr   */
+/*   Created: 2021/06/05 18:14:15 by kzennoun          #+#    #+#             */
+/*   Updated: 2021/06/06 13:05:42 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLIENT_H
-#define CLIENT_H
+#include "minitalk.h"
 
-#include "../shared/minitalk.h"
+int	get_pid(char *arg)
+{
+	int		value;
+	char	*ptr;
 
-
-int get_pid(char *arg);
-int ft_atoi(const char *str);
-char *ft_itoa(int n);
-int ft_strncmp(const char *s1, const char *s2, size_t n);
-void	piderror_exit(void);
-void	error_exit(int err);
-void	argerror_exit(void);
-
-#endif
+	value = ft_atoi(arg);
+	ptr = ft_itoa(value);
+	if (!ptr)
+		error_exit(-1);
+	if (ft_strncmp(ptr, arg, 50) != 0 || value > 4194304)
+	{
+		free(ptr);
+		piderror_exit();
+	}
+	free(ptr);
+	return (value);
+}
