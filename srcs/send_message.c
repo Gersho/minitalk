@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 12:26:00 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/06/06 16:01:15 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/06/06 17:17:12 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,29 @@ void send_message(char *str, int pid)
 		   if (str[i] & 128 / ft_power(2,j))
 		   {
 			 //send 1
-			 printf("send 1\n");
+			 printf("send SIGUSR1 (1)\n");
 			if (kill(pid, SIGUSR1) == -1)
 				error_exit(-1);
 		   }
 		   else 
 		   {
 			   //send 0
-			   printf("send 0\n");
+			   printf("send SIGUSR2 (0)\n");
 				if (kill(pid, SIGUSR2) == -1)
 					error_exit(-1);
 		   }
+			usleep(100);
 		   j++;
 	   } 
 		i++;
-		usleep(100);
 	}
 	j = 0;
 	while (j < 8)
 	{
+			printf("send SIGUSR2 (0) [for end of string]\n");
 		if (kill(pid, SIGUSR2) == -1)
 					error_exit(-1);
+		usleep(100);
 		j++;
 	}
 }
