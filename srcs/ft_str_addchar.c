@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 14:26:51 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/06/06 15:26:28 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/06/07 12:41:46 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,5 @@ char	*ft_straddchar(char const *str, char const c)
 	}
 	ptr[i++] = c;
 	ptr[i] = '\0';
-	//free(str);
 	return (ptr);
 }

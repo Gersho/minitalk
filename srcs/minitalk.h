@@ -6,7 +6,7 @@
 /*   By: kzennoun <kzennoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 17:38:44 by kzennoun          #+#    #+#             */
-/*   Updated: 2021/06/06 15:23:57 by kzennoun         ###   ########lyon.fr   */
+/*   Updated: 2021/06/07 12:44:17 by kzennoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,32 +29,6 @@ void	send_message(char *str, int pid);
 void	ft_putnbr_fd(int nb, int fd);
 char	*ft_straddchar(char const *str, char const c);
 void	ft_putstr_fd(char *s, int fd);
-void get_message(int sig);
+void	get_message(int sig);
 char	*ft_straddchar(char const *str, char const c);
 #endif
-
-/*
-
-write
-
-◦signal
-◦sigemptyset
-◦sigaddset
-◦sigaction
-
-◦kill
-◦getpid
-
-◦malloc
-◦free
-
-◦pause
-◦sleep
-◦usleep
-◦exit 
-
-*/
-
-
-// 1 = 1
-// 2 = 0
