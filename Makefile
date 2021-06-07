@@ -10,18 +10,18 @@ CC				= gcc
 RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror
 
-$(NAME):		all
+all:			$(NAME)
 
 %.o: 			%.c	minitalk.h
-				$(CC) $(CFLAGS) -c -o $*
+				$(CC) $(CFLAGS) -c $< -o $@
 
-all:			client server
+$(NAME):		client server
 
-client:			$(OBJS_CLIENT)
-				$(CC) $? $(CFLAGS) -o client
+client:			$(OBJS_CLIENT) srcs/minitalk.h
+				$(CC) $(CFLAGS) -Isrcs/minitalk.h -o client $(OBJS_CLIENT)
 
-server:			$(OBJS_SERVER)
-				$(CC) $? $(CFLAGS) -o server
+server:			$(OBJS_SERVER) srcs/minitalk.h
+				$(CC) $(CFLAGS) -Isrcs/minitalk.h -o server $(OBJS_SERVER)
 
 clean:			
 				$(RM) $(OBJS_CLIENT)
